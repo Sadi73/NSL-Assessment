@@ -1,0 +1,112 @@
+[
+    {
+      "_id": "64679a51092792ed729a1fb5",
+      "categoryName": "Audio",
+      "productName": "Laptop",
+      "serialNumber": 3234,
+      "purchasePrice": 14295,
+      "purchaseDate": "2023-06-03",
+      "warrantyInYears": 4,
+      "warrantyExpireDate": "2028-06-03",
+      "productPhoto": "https://img.freepik.com/free-photo/laptop-with-blank-black-screen-white-table_53876-97915.jpg?size=626&ext=jpg&ga=GA1.1.793887435.1673891886&semt=sph"
+    },
+    {
+      "_id": "64679a5166f9ea887b78916f",
+      "categoryName": "Computers",
+      "productName": "Apple 11",
+      "serialNumber": 3388,
+      "purchasePrice": 15792,
+      "purchaseDate": "2023-06-03",
+      "warrantyInYears": 3,
+      "warrantyExpireDate": "2028-06-03",
+      "productPhoto": "https://img.freepik.com/free-photo/laptop-with-blank-black-screen-white-table_53876-97915.jpg?size=626&ext=jpg&ga=GA1.1.793887435.1673891886&semt=sph"
+    },
+    {
+      "_id": "64679a515dd4716cadb3ed48",
+      "categoryName": "Smartphones",
+      "productName": "Laptop",
+      "serialNumber": 3342,
+      "purchasePrice": 17414,
+      "purchaseDate": "2023-06-03",
+      "warrantyInYears": 3,
+      "warrantyExpireDate": "2028-06-03",
+      "productPhoto": "https://img.freepik.com/free-photo/laptop-with-blank-black-screen-white-table_53876-97915.jpg?size=626&ext=jpg&ga=GA1.1.793887435.1673891886&semt=sph"
+    },
+    {
+      "_id": "64679a51451dbe1292ece217",
+      "categoryName": "Smartphones",
+      "productName": "Monitor",
+      "serialNumber": 3876,
+      "purchasePrice": 19950,
+      "purchaseDate": "2023-06-03",
+      "warrantyInYears": 1,
+      "warrantyExpireDate": "2028-06-03",
+      "productPhoto": "https://img.freepik.com/free-photo/laptop-with-blank-black-screen-white-table_53876-97915.jpg?size=626&ext=jpg&ga=GA1.1.793887435.1673891886&semt=sph"
+    },
+    {
+      "_id": "64679a513387922f1568b2d5",
+      "categoryName": "Computers",
+      "productName": "Laptop",
+      "serialNumber": 3703,
+      "purchasePrice": 18814,
+      "purchaseDate": "2023-06-03",
+      "warrantyInYears": 0,
+      "warrantyExpireDate": "2028-06-03",
+      "productPhoto": "https://img.freepik.com/free-photo/laptop-with-blank-black-screen-white-table_53876-97915.jpg?size=626&ext=jpg&ga=GA1.1.793887435.1673891886&semt=sph"
+    },
+    {
+      "_id": "64679a51efc6e02d56404a08",
+      "categoryName": "Smartphones",
+      "productName": "Monitor",
+      "serialNumber": 3017,
+      "purchasePrice": 19990,
+      "purchaseDate": "2023-06-03",
+      "warrantyInYears": 4,
+      "warrantyExpireDate": "2028-06-03",
+      "productPhoto": "https://img.freepik.com/free-photo/laptop-with-blank-black-screen-white-table_53876-97915.jpg?size=626&ext=jpg&ga=GA1.1.793887435.1673891886&semt=sph"
+    },
+    {
+      "_id": "64679a518c1ab360113d948f",
+      "categoryName": "Audio",
+      "productName": "Samsung Galaxy 10",
+      "serialNumber": 3432,
+      "purchasePrice": 15583,
+      "purchaseDate": "2023-06-03",
+      "warrantyInYears": 4,
+      "warrantyExpireDate": "2028-06-03",
+      "productPhoto": "https://img.freepik.com/free-photo/laptop-with-blank-black-screen-white-table_53876-97915.jpg?size=626&ext=jpg&ga=GA1.1.793887435.1673891886&semt=sph"
+    },
+    {
+      "_id": "64679a51357e93a651e09339",
+      "categoryName": "Smartphones",
+      "productName": "Monitor",
+      "serialNumber": 3425,
+      "purchasePrice": 14133,
+      "purchaseDate": "2023-06-03",
+      "warrantyInYears": 1,
+      "warrantyExpireDate": "2028-06-03",
+      "productPhoto": "https://img.freepik.com/free-photo/laptop-with-blank-black-screen-white-table_53876-97915.jpg?size=626&ext=jpg&ga=GA1.1.793887435.1673891886&semt=sph"
+    },
+    {
+      "_id": "64679a5155925ea6d51591b8",
+      "categoryName": "Smartphones",
+      "productName": "Apple 11",
+      "serialNumber": 3888,
+      "purchasePrice": 18488,
+      "purchaseDate": "2023-06-03",
+      "warrantyInYears": 5,
+      "warrantyExpireDate": "2028-06-03",
+      "productPhoto": "https://img.freepik.com/free-photo/laptop-with-blank-black-screen-white-table_53876-97915.jpg?size=626&ext=jpg&ga=GA1.1.793887435.1673891886&semt=sph"
+    },
+    {
+      "_id": "64679a517b49f0aff7de41ef",
+      "categoryName": "Computers",
+      "productName": "Apple 11",
+      "serialNumber": 3557,
+      "purchasePrice": 22546,
+      "purchaseDate": "2023-06-03",
+      "warrantyInYears": 3,
+      "warrantyExpireDate": "2028-06-03",
+      "productPhoto": "https://img.freepik.com/free-photo/laptop-with-blank-black-screen-white-table_53876-97915.jpg?size=626&ext=jpg&ga=GA1.1.793887435.1673891886&semt=sph"
+    }
+  ]

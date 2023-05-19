@@ -1,4 +1,5 @@
 import './App.css'
+import Content from './Components/Content'
 import Header from './Components/Header'
 import NavBar from './Components/NavBar'
 
@@ -8,6 +9,7 @@ function App() {
     <div>
       <NavBar></NavBar>
       <Header></Header>
+      <Content></Content>
 
       
     </div>

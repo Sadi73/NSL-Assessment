@@ -10,9 +10,9 @@ const Header = () => {
         const serial_Number = event.target.serialNumber.value;
         const purchase_Price = event.target.purchasePrice.value;
         const purchase_Date = event.target.purchaseDate.value;
-        const a = event.target.checkbox.value;
+        // const a = event.target.checkbox.value;
         console.log(categoty, product_Name, serial_Number, purchase_Price, purchase_Date);
-        console.log(a);
+        // console.log(a);
     }
     const handleCheckbox = () => {
         setIsChecked(!isChecked);
@@ -78,7 +78,7 @@ const Header = () => {
                         <br />
 
                         {/* warranty section */}
-                        <div className="grid grid-cols-[200px_1fr]">
+                        <div className="grid grid-cols-[200px_1fr] mb-3">
                             <div></div>
                             <div>
                                 <input type="checkbox" name="checkbox" id="" onChange={handleCheckbox} /><label htmlFor="">Has Warranty</label>
@@ -102,12 +102,25 @@ const Header = () => {
                             )
                         }
 
-
-
+                        {/* add image section  */}
+                        <div className="grid grid-cols-[200px_1fr] mt-6">
+                            <div></div>
+                            <div>
+                                <label htmlFor="fileInput" className="border-2 p-2">
+                                    Add Image
+                                </label>
+                                <input
+                                    type="file"
+                                    id="fileInput"
+                                    accept=".jpg, .png"
+                                    // style={{ display: 'none' }}
+                                />
+                            </div>
+                        </div>
 
                         {/* cancel and save button */}
                         <div className="mt-10 flex justify-end gap-3">
-                            <label htmlFor="my-modal-5" className=" border border-red-700 text-red-700 p-2">Cancel</label>
+                            <label htmlFor="my-modal-5" className=" border border-red-700 text-red-700 py-2 px-4">Cancel</label>
 
                             <input type="submit" value='Save' name="" id="" className="bg-sky-500 text-white px-4 py-2" />
                         </div>
