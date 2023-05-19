@@ -1,5 +1,16 @@
 
 const Header = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const categoty = event.target.category.value;
+        const product_Name = event.target.productName.value;
+        const serial_Number = event.target.serialNumber.value;
+        const purchase_Price = event.target.purchasePrice.value;
+        const purchase_Date = event.target.purchaseDate.value;
+        console.log(categoty, product_Name, serial_Number, purchase_Price, purchase_Date)
+
+
+    }
     return (
         <div className="px-10">
             {/* The button to open modal */}
@@ -22,10 +33,10 @@ const Header = () => {
                     <label htmlFor="my-modal-5" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
 
                     <h1 className="text-3xl font-medium text-center mb-10">Add New Product</h1>
-                    <form >
+                    <form onSubmit={handleSubmit}>
                         <div className="grid grid-cols-[200px_1fr]">
                             <label htmlFor="">Categoty <span className="text-red-500">*</span> </label>
-                            <select className="border-2 py-1 px-3" id="" name="">
+                            <select className="border-2 py-2 px-3" id="" name="category">
                                 <option value="computer">Computers</option>
                                 <option value="smartphone">Smartphones</option>
                                 <option value="audio">Audio</option>
@@ -34,7 +45,7 @@ const Header = () => {
                         <br />
                         <div className="grid grid-cols-[200px_1fr]">
                             <label htmlFor="">Product Name <span className="text-red-500">*</span></label>
-                            <select className="border-2 py-1 px-3" id="" name="">
+                            <select className="border-2 py-2 px-3" id="" name="productName">
                                 <option value="laptop">Laptop</option>
                                 <option value="desktop">Desktop</option>
                                 <option value="chromebook">Chrome Book</option>
@@ -43,18 +54,20 @@ const Header = () => {
                         <br />
                         <div className="grid grid-cols-[200px_1fr]">
                             <label htmlFor="">Serial Number</label>
-                            <input className="border-2 py-1 px-3" type="text" />
+                            <input className="border-2 py-2 px-3" type="text" name="serialNumber"/>
                         </div>
                         <br />
                         <div className="grid grid-cols-[200px_1fr]">
                             <label htmlFor="">Purchase Price <span className="text-red-500">*</span></label>
-                            <input className="border-2 py-1 px-3" type="text" />
+                            <input className="border-2 py-2 px-3" type="text" name="purchasePrice"/>
                         </div>
                         <br />
                         <div className="grid grid-cols-[200px_1fr]">
                             <label htmlFor="">Purchase Date <span className="text-red-500">*</span></label>
-                            <input className="border-2 py-1 px-3" type="text" />
+                            <input className="border-2 py-2 px-3" type="date" name="purchaseDate"/>
                         </div>
+
+                        {/* cancel and save button */}
                         <div className="mt-10 flex justify-end gap-3">
                             <label htmlFor="my-modal-5" className=" border border-red-700 text-red-700 p-2">Cancel</label>
 
