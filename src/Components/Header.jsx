@@ -1,5 +1,8 @@
+import { useState } from "react";
 
 const Header = () => {
+    const [isChecked, setIsChecked] = useState(false);
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const categoty = event.target.category.value;
@@ -7,7 +10,13 @@ const Header = () => {
         const serial_Number = event.target.serialNumber.value;
         const purchase_Price = event.target.purchasePrice.value;
         const purchase_Date = event.target.purchaseDate.value;
-        console.log(categoty, product_Name, serial_Number, purchase_Price, purchase_Date)
+        const a = event.target.checkbox.value;
+        console.log(categoty, product_Name, serial_Number, purchase_Price, purchase_Date);
+        console.log(a);
+    }
+    const handleCheckbox = () => {
+        setIsChecked(!isChecked);
+        console.log(isChecked);
 
 
     }
@@ -54,18 +63,47 @@ const Header = () => {
                         <br />
                         <div className="grid grid-cols-[200px_1fr]">
                             <label htmlFor="">Serial Number</label>
-                            <input className="border-2 py-2 px-3" type="text" name="serialNumber"/>
+                            <input className="border-2 py-2 px-3" type="text" name="serialNumber" />
                         </div>
                         <br />
                         <div className="grid grid-cols-[200px_1fr]">
                             <label htmlFor="">Purchase Price <span className="text-red-500">*</span></label>
-                            <input className="border-2 py-2 px-3" type="text" name="purchasePrice"/>
+                            <input className="border-2 py-2 px-3" type="text" name="purchasePrice" />
                         </div>
                         <br />
                         <div className="grid grid-cols-[200px_1fr]">
                             <label htmlFor="">Purchase Date <span className="text-red-500">*</span></label>
-                            <input className="border-2 py-2 px-3" type="date" name="purchaseDate"/>
+                            <input className="border-2 py-2 px-3" type="date" name="purchaseDate" />
                         </div>
+                        <br />
+
+                        {/* warranty section */}
+                        <div className="grid grid-cols-[200px_1fr]">
+                            <div></div>
+                            <div>
+                                <input type="checkbox" name="checkbox" id="" onChange={handleCheckbox} /><label htmlFor="">Has Warranty</label>
+                            </div>
+                        </div>
+                        {
+                            isChecked && (
+                                <div>
+                                    <div>
+                                        <div className="grid grid-cols-[200px_1fr]">
+                                            <label htmlFor="">Warranty <span className="text-red-500">*</span></label>
+                                            <input className="border-2 py-2 px-3" type="text" name="warranty" />
+                                        </div>
+                                        <br />
+                                        <div className="grid grid-cols-[200px_1fr]">
+                                            <label htmlFor="">Warranty Expiry Date <span className="text-red-500">*</span></label>
+                                            <input className="border-2 py-2 px-3" type="text" name="warrantyExpiryDate" />
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        }
+
+
+
 
                         {/* cancel and save button */}
                         <div className="mt-10 flex justify-end gap-3">
