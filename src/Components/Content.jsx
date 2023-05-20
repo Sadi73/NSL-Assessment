@@ -39,7 +39,7 @@ const Content = () => {
     return (
         <div className="p-10">
             <div className="overflow-x-auto">
-                <table className="table w-full">
+                <table className="table w-full text-center font-semi">
                     <thead>
                         <tr className="bg-gray-300">
                             <th>Asset No.</th>
@@ -59,20 +59,20 @@ const Content = () => {
                                 <tr key={item.id} className="border-2 my-10">
                                     <td>{item.assetNumber}</td>
                                     <td>{item.categoryName}</td>
-                                    <td> <img src={item.productPhoto} alt="" className="w-10 h-10" /> </td>
+                                    <td className="flex justify-center"> <img src={item.productPhoto} alt="" className="w-10 h-10" /> </td>
                                     <td>{item.productName}</td>
                                     <td>{item.serialNumber}</td>
                                     <td>{item.purchasePrice}</td>
                                     <td className="text-center">{item.warrantyInYears}</td>
                                     <td>{item.purchaseDate}</td>
                                     <td>
-                                        <button className="mr-1 btn btn-outline btn-primary">
-                                            <FontAwesomeIcon icon={faPenToSquare} className="text-sky-500 hover:text-white" />
+                                        <button className="mr-3">
+                                            <FontAwesomeIcon icon={faPenToSquare} className="text-sky-400 hover:text-sky-700" />
                                         </button>
 
                                         <button className="">
-                                            <label htmlFor="my-modal-4" className="btn btn-outline btn-error" onClick={() => setDeleteID(item.id)}>
-                                                <FontAwesomeIcon icon={faTrash} className=" text-red-500 hover:text-white" />
+                                            <label htmlFor="my-modal-4" className="" onClick={() => setDeleteID(item.id)}>
+                                                <FontAwesomeIcon icon={faTrash} className=" text-red-400 hover:text-red-700" />
                                             </label>
                                         </button>
                                     </td>

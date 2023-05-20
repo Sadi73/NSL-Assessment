@@ -36,10 +36,10 @@ const Header = () => {
         <div className="px-10">
             {/* The button to open modal */}
             <div className="flex justify-between">
-                <label htmlFor="my-modal-5" className="bg-sky-800 p-2 text-white rounded-md hover:bg-sky-700">Add Inventory</label>
+                <label htmlFor="my-modal-5" className="bg-sky-800 p-2.5 text-white rounded-md hover:bg-sky-700">Add Inventory</label>
                 <div className="form-control">
                     <div className="input-group">
-                        <input type="text" placeholder="Search here" className="input input-bordered" />
+                        <input type="text" placeholder="Search here" className="input input-bordered focus:outline-none" />
                         <button className="btn btn-square">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                         </button>
@@ -58,9 +58,9 @@ const Header = () => {
                         <div className="grid grid-cols-[200px_1fr]">
                             <label htmlFor="">Categoty <span className="text-red-500">*</span> </label>
                             <select className="border-2 py-2 px-3" id="" name="category">
-                                <option value="computer">Computers</option>
-                                <option value="smartphone">Smartphones</option>
-                                <option value="audio">Audio</option>
+                                <option value="Computers">Computers</option>
+                                <option value="Smartphones">Smartphones</option>
+                                <option value="Audio">Audio</option>
                             </select>
                         </div>
                         <br />
