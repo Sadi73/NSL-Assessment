@@ -81,7 +81,7 @@ const Header = () => {
                         <div className="grid grid-cols-[200px_1fr] mb-3">
                             <div></div>
                             <div>
-                                <input type="checkbox" name="checkbox" id="" onChange={handleCheckbox} /><label htmlFor="">Has Warranty</label>
+                                <input type="checkbox" name="checkbox" id="checkbox" onChange={handleCheckbox} /><label htmlFor="checkbox"> Has Warranty</label>
                             </div>
                         </div>
                         {
