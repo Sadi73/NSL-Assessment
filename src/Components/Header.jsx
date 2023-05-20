@@ -2,6 +2,75 @@ import { useState } from "react";
 
 const Header = () => {
     const [isChecked, setIsChecked] = useState(false);
+    const updateProductName = (event) => {
+        const category = event.target.value;
+        console.log(category);
+
+        const product_name = document.getElementById('productName');
+        product_name.innerHTML = '';
+
+        if (category === "computer") {
+            const option1 = document.createElement("option");
+            option1.value = "laptop";
+            option1.textContent = "Laptop";
+            product_name.appendChild(option1);
+      
+            const option2 = document.createElement("option");
+            option2.value = "desktop";
+            option2.textContent = "Desktop";
+            product_name.appendChild(option2);
+
+            const option3 = document.createElement("option");
+            option3.value = "chromeBook";
+            option3.textContent = "Chrome Book";
+            product_name.appendChild(option3);
+          }
+
+        else if (category === "smartphone") {
+            const option1 = document.createElement("option");
+            option1.value = "iPhone";
+            option1.textContent = "iPhone";
+            product_name.appendChild(option1);
+
+            const option2 = document.createElement("option");
+            option2.value = "samsungGalaxy";
+            option2.textContent = "Samsung Galaxy";
+            product_name.appendChild(option2);
+
+            const option3 = document.createElement("option");
+            option3.value = "googlePixel";
+            option3.textContent = "Google Pixel";
+            product_name.appendChild(option3);
+
+            const option4 = document.createElement("option");
+            option4.value = "onePlus";
+            option4.textContent = "One Plus";
+            product_name.appendChild(option4);
+        }
+
+        else if (category === "audio") {
+            const option1 = document.createElement("option");
+            option1.value = "headphone";
+            option1.textContent = "Headphones";
+            product_name.appendChild(option1);
+
+            const option2 = document.createElement("option");
+            option2.value = "bluethoothSpeaker";
+            option2.textContent = "Bluethooth Speakers";
+            product_name.appendChild(option2);
+
+            const option3 = document.createElement("option");
+            option3.value = "soundBars";
+            option3.textContent = "Sound Bars";
+            product_name.appendChild(option3);
+
+            const option4 = document.createElement("option");
+            option4.value = "earphones";
+            option4.textContent = "Ear Phones";
+            product_name.appendChild(option4);
+        }
+
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -12,9 +81,9 @@ const Header = () => {
         const purchaseDate = event.target.purchaseDate.value;
         const warrantyInYears = event.target.warranty.value;
         const warrantyExpireDate = event.target.warrantyExpiryDate.value;
-        
+
         // const a = event.target.checkbox.value;
-        console.log(categoryName, productName, serialNumber, purchasePrice, purchaseDate, warrantyInYears,warrantyExpireDate);
+        console.log(categoryName, productName, serialNumber, purchasePrice, purchaseDate, warrantyInYears, warrantyExpireDate);
         // console.log(a);
         const newItem = {
             categoryName,
@@ -22,7 +91,7 @@ const Header = () => {
             serialNumber,
             purchasePrice,
             purchaseDate,
-            warrantyInYears,warrantyExpireDate
+            warrantyInYears, warrantyExpireDate
         }
         console.log(newItem)
     }
@@ -57,16 +126,16 @@ const Header = () => {
                     <form onSubmit={handleSubmit}>
                         <div className="grid grid-cols-[200px_1fr]">
                             <label htmlFor="">Categoty <span className="text-red-500">*</span> </label>
-                            <select className="border-2 py-2 px-3" id="" name="category">
-                                <option value="Computers">Computers</option>
-                                <option value="Smartphones">Smartphones</option>
-                                <option value="Audio">Audio</option>
+                            <select className="border-2 py-2 px-3" id="category" name="category" onChange={updateProductName}>
+                                <option value="computer">Computers</option>
+                                <option value="smartphone">Smartphones</option>
+                                <option value="audio">Audio</option>
                             </select>
                         </div>
                         <br />
                         <div className="grid grid-cols-[200px_1fr]">
                             <label htmlFor="">Product Name <span className="text-red-500">*</span></label>
-                            <select className="border-2 py-2 px-3" id="" name="productName">
+                            <select className="border-2 py-2 px-3" id="productName" name="productName">
                                 <option value="laptop">Laptop</option>
                                 <option value="desktop">Desktop</option>
                                 <option value="chromebook">Chrome Book</option>
@@ -125,7 +194,7 @@ const Header = () => {
                                     type="file"
                                     id="fileInput"
                                     accept=".jpg, .png"
-                                    // style={{ display: 'none' }}
+                                // style={{ display: 'none' }}
                                 />
                             </div>
                         </div>
