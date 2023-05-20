@@ -44,13 +44,13 @@ const Content = () => {
                                     <td className="text-center">{item.warrantyInYears}</td>
                                     <td>{item.purchaseDate}</td>
                                     <td>
-                                        <button className="mr-5 btn btn-outline btn-primary">
-                                            <FontAwesomeIcon icon={faPenToSquare} className="text-sky-500" />
+                                        <button className="mr-1 btn btn-outline btn-primary">
+                                            <FontAwesomeIcon icon={faPenToSquare} className="text-sky-500 hover:text-white" />
                                         </button>
                                         
                                         <button className="">
                                             <label htmlFor="my-modal-4" className="btn btn-outline btn-error" onClick={() => setDeleteID(item._id)}>
-                                                <FontAwesomeIcon icon={faTrash} className=" text-red-500" />
+                                                <FontAwesomeIcon icon={faTrash} className=" text-red-500 hover:text-white" />
                                             </label>
                                         </button>
                                     </td>
