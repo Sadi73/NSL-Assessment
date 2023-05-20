@@ -24,11 +24,12 @@ const Content = () => {
             .then(response => response.json())
             .then(result => setItems(result))
             .catch(error => console.log('error', error));
-    }, [])
+    },[])
     // ends here 
 
 
     const handleConfirm = (id) => {
+
         console.log('successfully deleted', id);
         const updatedItems = items.filter(item => item.id !== id);
         // console.log(updatedItems);

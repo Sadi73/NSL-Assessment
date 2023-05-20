@@ -5,14 +5,26 @@ const Header = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const categoty = event.target.category.value;
-        const product_Name = event.target.productName.value;
-        const serial_Number = event.target.serialNumber.value;
-        const purchase_Price = event.target.purchasePrice.value;
-        const purchase_Date = event.target.purchaseDate.value;
+        const categoryName = event.target.category.value;
+        const productName = event.target.productName.value;
+        const serialNumber = event.target.serialNumber.value;
+        const purchasePrice = event.target.purchasePrice.value;
+        const purchaseDate = event.target.purchaseDate.value;
+        const warrantyInYears = event.target.warranty.value;
+        const warrantyExpireDate = event.target.warrantyExpiryDate.value;
+        
         // const a = event.target.checkbox.value;
-        console.log(categoty, product_Name, serial_Number, purchase_Price, purchase_Date);
+        console.log(categoryName, productName, serialNumber, purchasePrice, purchaseDate, warrantyInYears,warrantyExpireDate);
         // console.log(a);
+        const newItem = {
+            categoryName,
+            productName,
+            serialNumber,
+            purchasePrice,
+            purchaseDate,
+            warrantyInYears,warrantyExpireDate
+        }
+        console.log(newItem)
     }
     const handleCheckbox = () => {
         setIsChecked(!isChecked);
