@@ -14,6 +14,13 @@ const Content = () => {
             .then(data => setItems(data));
     }, [])
 
+    const handleConfirm = (id) => {
+        console.log('successfully deleted', id);
+        const updatedItems = items.filter(item => item._id !== id);
+        // console.log(updatedItems);
+        setItems(updatedItems);
+    }
+
     return (
         <div className="p-10">
             <div className="overflow-x-auto">
@@ -47,7 +54,7 @@ const Content = () => {
                                         <button className="mr-1 btn btn-outline btn-primary">
                                             <FontAwesomeIcon icon={faPenToSquare} className="text-sky-500 hover:text-white" />
                                         </button>
-                                        
+
                                         <button className="">
                                             <label htmlFor="my-modal-4" className="btn btn-outline btn-error" onClick={() => setDeleteID(item._id)}>
                                                 <FontAwesomeIcon icon={faTrash} className=" text-red-500 hover:text-white" />
@@ -65,13 +72,17 @@ const Content = () => {
             <label htmlFor="my-modal-4" className="modal cursor-pointer">
                 <label className="modal-box relative" htmlFor="">
                     <div className="flex justify-center mb-10">
-                        <FontAwesomeIcon icon={faTrash} className="text-7xl " />
+                        <FontAwesomeIcon icon={faTrash} className="text-7xl text-red-300" />
                     </div>
                     <h3 className="text-lg font-medium text-center mb-10">Are you sure you want to delete this product? {deleteID} </h3>
                     <div className="flex justify-end">
                         <div>
-                            <button className="btn btn-outline btn-info mr-5">NO</button>
-                            <button className="btn btn-outline btn-error">YES</button>
+                            <button className="btn btn-outline btn-info mr-5">
+                                <label htmlFor="my-modal-4">NO</label>
+                            </button>
+                            <button className="btn btn-outline btn-error" onClick={() => handleConfirm(deleteID)}>
+                                <label htmlFor="my-modal-4">YES</label>
+                                </button>
                         </div>
                     </div>
 
