@@ -8,15 +8,29 @@ import { faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 const Content = () => {
     const [items, setItems] = useState([]);
     const [deleteID, setDeleteID] = useState(null);
+
+    // starts here
+    var myHeaders = new Headers();
+    myHeaders.append("apiKey", "gHnalAf+KT7bKgP5JDR2v9KeUipZhhMAmmzMyNW7bCo=");
+
+    var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
+
     useEffect(() => {
-        fetch('./data.json')
-            .then(res => res.json())
-            .then(data => setItems(data));
+        fetch("http://182.163.101.173:49029/product-crud/products", requestOptions)
+            .then(response => response.json())
+            .then(result => setItems(result))
+            .catch(error => console.log('error', error));
     }, [])
+    // ends here 
+
 
     const handleConfirm = (id) => {
         console.log('successfully deleted', id);
-        const updatedItems = items.filter(item => item._id !== id);
+        const updatedItems = items.filter(item => item.id !== id);
         // console.log(updatedItems);
         setItems(updatedItems);
     }
@@ -41,8 +55,8 @@ const Content = () => {
                     <tbody>
                         {
                             items.map(item => (
-                                <tr key={item._id} className="border-2 my-10">
-                                    <td>{item._id}</td>
+                                <tr key={item.id} className="border-2 my-10">
+                                    <td>{item.assetNumber}</td>
                                     <td>{item.categoryName}</td>
                                     <td> <img src={item.productPhoto} alt="" className="w-10 h-10" /> </td>
                                     <td>{item.productName}</td>
@@ -56,7 +70,7 @@ const Content = () => {
                                         </button>
 
                                         <button className="">
-                                            <label htmlFor="my-modal-4" className="btn btn-outline btn-error" onClick={() => setDeleteID(item._id)}>
+                                            <label htmlFor="my-modal-4" className="btn btn-outline btn-error" onClick={() => setDeleteID(item.id)}>
                                                 <FontAwesomeIcon icon={faTrash} className=" text-red-500 hover:text-white" />
                                             </label>
                                         </button>
@@ -82,7 +96,7 @@ const Content = () => {
                             </button>
                             <button className="btn btn-outline btn-error" onClick={() => handleConfirm(deleteID)}>
                                 <label htmlFor="my-modal-4">YES</label>
-                                </button>
+                            </button>
                         </div>
                     </div>
 
