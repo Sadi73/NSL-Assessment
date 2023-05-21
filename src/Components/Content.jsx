@@ -24,10 +24,26 @@ const Content = () => {
             .then(response => response.json())
             .then(result => setItems(result))
             .catch(error => console.log('error', error));
-    },[])
+    }, [])
     // ends here 
 
     const handleConfirm = (id) => {
+
+        // delete from api
+        var myHeaders = new Headers();
+        myHeaders.append("apiKey", "gHnalAf+KT7bKgP5JDR2v9KeUipZhhMAmmzMyNW7bCo=");
+
+        var requestOptions = {
+            method: 'DELETE',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+
+        fetch(`http://182.163.101.173:49029/product-crud/products/${id}`, requestOptions)
+            .then(response => response.json())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+        // delete from api
 
         console.log('successfully deleted', id);
         const updatedItems = items.filter(item => item.id !== id);
