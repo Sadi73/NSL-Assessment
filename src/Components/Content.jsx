@@ -27,7 +27,6 @@ const Content = () => {
     },[])
     // ends here 
 
-
     const handleConfirm = (id) => {
 
         console.log('successfully deleted', id);
