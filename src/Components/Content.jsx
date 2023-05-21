@@ -42,7 +42,7 @@ const Content = () => {
                 <table className="table w-full text-center font-semi">
                     <thead>
                         <tr className="bg-gray-300">
-                            <th>Asset No.</th>
+                            <th className="static">Asset No.</th>
                             <th>Category</th>
                             <th>Image</th>
                             <th>Product Name</th>

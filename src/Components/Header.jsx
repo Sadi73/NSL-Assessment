@@ -1,7 +1,9 @@
 import { useState } from "react";
+import DatePicker from "./DatePicker";
 
 const Header = () => {
     const [isChecked, setIsChecked] = useState(false);
+
     const updateProductName = (event) => {
         const category = event.target.value;
         console.log(category);
@@ -14,7 +16,7 @@ const Header = () => {
             option1.value = "laptop";
             option1.textContent = "Laptop";
             product_name.appendChild(option1);
-      
+
             const option2 = document.createElement("option");
             option2.value = "desktop";
             option2.textContent = "Desktop";
@@ -24,7 +26,7 @@ const Header = () => {
             option3.value = "chromeBook";
             option3.textContent = "Chrome Book";
             product_name.appendChild(option3);
-          }
+        }
 
         else if (category === "smartphone") {
             const option1 = document.createElement("option");
@@ -71,7 +73,6 @@ const Header = () => {
         }
 
     }
-
     const handleSubmit = (event) => {
         event.preventDefault();
         const categoryName = event.target.category.value;
@@ -138,7 +139,7 @@ const Header = () => {
                             <select className="border-2 py-2 px-3" id="productName" name="productName">
                                 <option value="laptop">Laptop</option>
                                 <option value="desktop">Desktop</option>
-                                <option value="chromebook">Chrome Book</option>
+                                <option value="chromebook">Chromebook</option>
                             </select>
                         </div>
                         <br />
@@ -152,9 +153,14 @@ const Header = () => {
                             <input className="border-2 py-2 px-3" type="text" name="purchasePrice" />
                         </div>
                         <br />
-                        <div className="grid grid-cols-[200px_1fr]">
+                        {/* <div className="grid grid-cols-[200px_1fr]">
                             <label htmlFor="">Purchase Date <span className="text-red-500">*</span></label>
                             <input className="border-2 py-2 px-3" type="date" name="purchaseDate" />
+                        </div> */}
+                        <div className="grid grid-cols-[200px_1fr]">
+                            <label htmlFor="">Purchase Date <span className="text-red-500">*</span></label>
+
+                            <DatePicker></DatePicker>
                         </div>
                         <br />
 
@@ -174,9 +180,13 @@ const Header = () => {
                                             <input className="border-2 py-2 px-3" type="text" name="warranty" />
                                         </div>
                                         <br />
-                                        <div className="grid grid-cols-[200px_1fr]">
+                                        {/* <div className="grid grid-cols-[200px_1fr]">
                                             <label htmlFor="">Warranty Expiry Date <span className="text-red-500">*</span></label>
                                             <input className="border-2 py-2 px-3" type="text" name="warrantyExpiryDate" />
+                                        </div> */}
+                                        <div className="grid grid-cols-[200px_1fr]">
+                                            <label htmlFor="">Warranty Expiry Date <span className="text-red-500">*</span></label>
+                                            <DatePicker></DatePicker>
                                         </div>
                                     </div>
                                 </div>
