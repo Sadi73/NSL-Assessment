@@ -1,5 +1,7 @@
 import { useState } from "react";
 import DatePicker from "./DatePicker";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCamera } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
     const [isChecked, setIsChecked] = useState(false);
@@ -153,13 +155,8 @@ const Header = () => {
                             <input className="border-2 py-2 px-3" type="text" name="purchasePrice" />
                         </div>
                         <br />
-                        {/* <div className="grid grid-cols-[200px_1fr]">
-                            <label htmlFor="">Purchase Date <span className="text-red-500">*</span></label>
-                            <input className="border-2 py-2 px-3" type="date" name="purchaseDate" />
-                        </div> */}
                         <div className="grid grid-cols-[200px_1fr]">
                             <label htmlFor="">Purchase Date <span className="text-red-500">*</span></label>
-
                             <DatePicker></DatePicker>
                         </div>
                         <br />
@@ -194,13 +191,14 @@ const Header = () => {
                         }
 
                         {/* add image section  */}
-                        <div className="grid grid-cols-[200px_1fr] mt-6">
+                        <div className="grid grid-cols-[200px_1fr] mt-10">
                             <div></div>
-                            <div>
-                                <label htmlFor="fileInput" className="border-2 p-2">
-                                    Add Image
+                            <div className="relative">
+                                <label htmlFor="fileInput" className="border-2 p-5 ">
+                                <FontAwesomeIcon icon={faCamera} className="mr-2 " /> Add Image
                                 </label>
                                 <input
+                                className="absolute left-0 top-11"
                                     type="file"
                                     id="fileInput"
                                     accept=".jpg, .png"
