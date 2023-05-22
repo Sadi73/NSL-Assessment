@@ -1,4 +1,3 @@
-// import React from 'react';
 
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -53,50 +52,60 @@ const Content = () => {
 
     return (
         <div className="p-10">
-            <div className="overflow-x-auto">
-                <table className="table w-full text-center font-semi">
-                    <thead>
-                        <tr className="bg-gray-300">
-                            <th className="static">Asset No.</th>
-                            <th>Category</th>
-                            <th>Image</th>
-                            <th>Product Name</th>
-                            <th>Serial No.</th>
-                            <th>Price</th>
-                            <th>Warranty</th>
-                            <th>Purchase Date</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            items.map(item => (
-                                <tr key={item.id} className="border-2 my-10">
-                                    <td>{item.assetNumber}</td>
-                                    <td>{item.categoryName}</td>
-                                    <td className="flex justify-center"> <img src={item.productPhoto} alt="" className="w-10 h-10" /> </td>
-                                    <td>{item.productName}</td>
-                                    <td>{item.serialNumber}</td>
-                                    <td>{item.purchasePrice}</td>
-                                    <td className="text-center">{item.warrantyInYears}</td>
-                                    <td>{item.purchaseDate}</td>
-                                    <td>
-                                        <button className="mr-3">
-                                            <FontAwesomeIcon icon={faPenToSquare} className="text-sky-400 hover:text-sky-700" />
-                                        </button>
-
-                                        <button className="">
-                                            <label htmlFor="my-modal-4" className="" onClick={() => setDeleteID(item.id)}>
-                                                <FontAwesomeIcon icon={faTrash} className=" text-red-400 hover:text-red-700" />
-                                            </label>
-                                        </button>
-                                    </td>
+            {
+                items.length>0 ?
+                    <div className="overflow-x-auto">
+                        <table className="table w-full text-center font-semi">
+                            <thead>
+                                <tr className="bg-gray-300">
+                                    <th className="static">Asset No.</th>
+                                    <th>Category</th>
+                                    <th>Image</th>
+                                    <th>Product Name</th>
+                                    <th>Serial No.</th>
+                                    <th>Price</th>
+                                    <th>Warranty</th>
+                                    <th>Purchase Date</th>
+                                    <th>Action</th>
                                 </tr>
-                            ))
-                        }
-                    </tbody>
-                </table>
-            </div>
+                            </thead>
+                            <tbody>
+                                {
+                                    items.map(item => (
+                                        <tr key={item.id} className="border-2 my-10">
+                                            <td>{item.assetNumber}</td>
+                                            <td>{item.categoryName}</td>
+                                            <td className="flex justify-center"> <img src={item.productPhoto} alt="" className="w-10 h-10" /> </td>
+                                            <td>{item.productName}</td>
+                                            <td>{item.serialNumber}</td>
+                                            <td>{item.purchasePrice}</td>
+                                            <td className="text-center">{item.warrantyInYears}</td>
+                                            <td>{item.purchaseDate}</td>
+                                            <td>
+                                                <button className="mr-3">
+                                                    <FontAwesomeIcon icon={faPenToSquare} className="text-sky-400 hover:text-sky-700" />
+                                                </button>
+
+                                                <button className="">
+                                                    <label htmlFor="my-modal-4" className="" onClick={() => setDeleteID(item.id)}>
+                                                        <FontAwesomeIcon icon={faTrash} className=" text-red-400 hover:text-red-700" />
+                                                    </label>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    ))
+                                }
+                            </tbody>
+                        </table>
+                    </div> :
+                    <div className="h-96 flex justify-center items-center">
+                        <h1 className="text-red-700 text-3xl font-semibold">Your Have No Items in The Inventory</h1>
+                    </div>
+            }
+
+
+
+
             {/* Put this part before </body> tag */}
             <input type="checkbox" id="my-modal-4" className="modal-toggle" />
             <label htmlFor="my-modal-4" className="modal cursor-pointer">
