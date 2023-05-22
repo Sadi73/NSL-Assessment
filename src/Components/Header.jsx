@@ -1,7 +1,8 @@
 import { useState } from "react";
-import DatePicker from "./DatePicker";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
+import DatepikerForPurchase from "./DatepikerForPurchase";
+import DatePickerforWarranty from "./DatePickerforWarranty";
 
 const Header = () => {
     const [isChecked, setIsChecked] = useState(false);
@@ -75,6 +76,12 @@ const Header = () => {
         }
 
     }
+
+    const handleCheckbox = () => {
+        setIsChecked(!isChecked);
+        console.log(isChecked);
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const categoryName = event.target.category.value;
@@ -97,12 +104,7 @@ const Header = () => {
         }
         console.log(newItem)
     }
-    const handleCheckbox = () => {
-        setIsChecked(!isChecked);
-        console.log(isChecked);
-
-
-    }
+    
     return (
         <div className="px-10">
             {/* The button to open modal */}
@@ -156,7 +158,7 @@ const Header = () => {
                         <br />
                         <div className="grid grid-cols-[200px_1fr]">
                             <label htmlFor="">Purchase Date <span className="text-red-500">*</span></label>
-                            <DatePicker></DatePicker>
+                            <DatepikerForPurchase></DatepikerForPurchase>
                         </div>
                         <br />
 
@@ -176,13 +178,10 @@ const Header = () => {
                                             <input className="border-2 py-2 px-3" type="text" name="warranty" />
                                         </div>
                                         <br />
-                                        {/* <div className="grid grid-cols-[200px_1fr]">
-                                            <label htmlFor="">Warranty Expiry Date <span className="text-red-500">*</span></label>
-                                            <input className="border-2 py-2 px-3" type="text" name="warrantyExpiryDate" />
-                                        </div> */}
+                                        
                                         <div className="grid grid-cols-[200px_1fr]">
                                             <label htmlFor="">Warranty Expiry Date <span className="text-red-500">*</span></label>
-                                            <DatePicker></DatePicker>
+                                            <DatePickerforWarranty></DatePickerforWarranty>
                                         </div>
                                     </div>
                                 </div>
