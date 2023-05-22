@@ -104,7 +104,7 @@ const Header = () => {
     };
 
     const purchaseDate = `${year}-${month}-${day}`
-    const warrantyExpireDate = `${parseInt(year)  + 5}-${month}-${day}`;
+    const warrantyExpireDate = `${parseInt(year) + 5}-${month}-${day}`;
     console.log(purchaseDate)
     // --------------------------handle purchase Date----------------------------------------
 
@@ -137,7 +137,10 @@ const Header = () => {
             warrantyExpireDate,
             file
         }
-        console.log(newItem)
+        console.log(newItem);
+        // ------------------------
+        // ------------------------
+
     }
 
     return (

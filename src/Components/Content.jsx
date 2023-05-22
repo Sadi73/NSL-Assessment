@@ -8,6 +8,13 @@ const Content = () => {
     const [items, setItems] = useState([]);
     const [deleteID, setDeleteID] = useState(null);
 
+    const [isChecked, setIsChecked] = useState(false);
+    const handleCheckbox = () => {
+        setIsChecked(!isChecked);
+    }
+
+   
+
     // get data from api 
     var myHeaders = new Headers();
     myHeaders.append("apiKey", "gHnalAf+KT7bKgP5JDR2v9KeUipZhhMAmmzMyNW7bCo=");
@@ -55,7 +62,7 @@ const Content = () => {
     return (
         <div className="p-10">
             {
-                items.length>0 ?
+                items.length > 0 ?
                     <div className="overflow-x-auto">
                         <table className="table w-full text-center font-semi">
                             <thead>
@@ -87,7 +94,10 @@ const Content = () => {
                                             <td>{item.purchaseDate}</td>
                                             <td>
                                                 <button className="mr-3">
-                                                    <FontAwesomeIcon icon={faPenToSquare} className="text-sky-400 hover:text-sky-700" />
+                                                    <label htmlFor="my-modal-3" className="">
+                                                        <FontAwesomeIcon icon={faPenToSquare} className="text-sky-400 hover:text-sky-700" />
+                                                    </label>
+
                                                 </button>
 
                                                 <button className="">
@@ -108,7 +118,95 @@ const Content = () => {
             }
 
 
+            {/* Edit Modal */}
+            <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box max-w-3xl relative p-10">
+                    <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <h1 className="text-5xl text-center mb-10">Edit This Product</h1>
+                    <div className="grid grid-cols-[200px_1fr]">
+                        <h1>Category</h1>
+                        <select className="border-2 py-2 px-3" id="category" name="category" >
+                            <option value="Computers">Computers</option>
+                            <option value="Smartphones">Smartphones</option>
+                            <option value="Audio">Audio</option>
+                        </select>
+                    </div>
+                    <br />
 
+                    <div className="grid grid-cols-[200px_1fr]">
+                        <h1>Product Name</h1>
+                        <select className="border-2 py-2 px-3" id="productName" name="productName">
+                            <option value="laptop">Laptop</option>
+                            <option value="desktop">Desktop</option>
+                            <option value="chromebook">Chromebook</option>
+                            <option value="iPhone">iPhone</option>
+                            <option value="Samsung Galaxy">Samsung Galaxy</option>
+                            <option value="Google Pixel">Google Pixel</option>
+                            <option value="OnePlus">OnePlus</option>
+                            <option value="Headphones">Headphones</option>
+                            <option value="Bluetooth Speakers">Bluetooth Speakers</option>
+                            <option value="Soundbars">Soundbars</option>
+                            <option value="Earphones">Earphones</option>
+                        </select>
+                    </div>
+                    <br />
+
+                    <div className="grid grid-cols-[200px_1fr]">
+                        <h1>Serial Number</h1>
+                        <input className="border-2 py-2 px-3"  type="text" />
+                    </div>
+                    <br />
+
+                    <div className="grid grid-cols-[200px_1fr]">
+                        <h1>Purchase Price</h1>
+                        <input className="border-2 py-2 px-3"  type="text"  />
+                    </div>
+                    <br />
+
+                    <div className="grid grid-cols-[200px_1fr]">
+                        <h1>Purchase Date</h1>
+                        <input className="border-2 py-2 px-3"  type="date"  />
+                    </div>
+                    <br />
+
+
+                    {/* warranty section */}
+                    <div className="grid grid-cols-[200px_1fr] mb-3">
+                        <div></div>
+                        <div>
+                            <input type="checkbox" name="checkbox" id="checkbox" onChange={handleCheckbox} />
+                            <label htmlFor="checkbox"> Has Warranty</label>
+                        </div>
+                    </div>
+                    {
+                        isChecked && (
+                            <div>
+                                <div>
+                                    <div className="grid grid-cols-[200px_1fr]">
+                                        <label htmlFor="">Warranty <span className="text-red-500">*</span></label>
+                                        <input className="border-2 py-2 px-3" type="text" name="warranty" />
+                                    </div>
+                                    <br />
+
+                                    <div className="grid grid-cols-[200px_1fr]">
+                                        <label htmlFor="">Warranty Expiry Date <span className="text-red-500">*</span></label>
+                                        {/* <DatePickerforWarranty></DatePickerforWarranty> */}
+                                        <input className="border-2 py-2 px-3"  type="date" name="" id="" />
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    }
+
+                    {/* cancel and save button */}
+                    <div className="mt-10 flex justify-end gap-3">
+                        <label htmlFor="my-modal-3" className=" border border-red-700 text-red-700 py-2 px-4">Cancel</label>
+
+                        <input type="submit" value='Save' name="" id="" className="bg-sky-500 text-white px-4 py-2" />
+                    </div>
+                </div>
+            </div>
 
             {/* Delete Modal */}
             <input type="checkbox" id="my-modal-4" className="modal-toggle" />
@@ -137,3 +235,8 @@ const Content = () => {
 };
 
 export default Content;
+
+
+{/* The button to open modal */ }
+
+
