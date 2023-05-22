@@ -13,64 +13,64 @@ const Header = () => {
         const product_name = document.getElementById('productName');
         product_name.innerHTML = '';
 
-        if (category === "computer") {
+        if (category === "Computers") {
             const option1 = document.createElement("option");
-            option1.value = "laptop";
+            option1.value = "Laptop";
             option1.textContent = "Laptop";
             product_name.appendChild(option1);
 
             const option2 = document.createElement("option");
-            option2.value = "desktop";
+            option2.value = "Desktop";
             option2.textContent = "Desktop";
             product_name.appendChild(option2);
 
             const option3 = document.createElement("option");
-            option3.value = "chromeBook";
-            option3.textContent = "Chrome Book";
+            option3.value = "Chromebook";
+            option3.textContent = "Chromebook";
             product_name.appendChild(option3);
         }
 
-        else if (category === "smartphone") {
+        else if (category === "Smartphones") {
             const option1 = document.createElement("option");
             option1.value = "iPhone";
             option1.textContent = "iPhone";
             product_name.appendChild(option1);
 
             const option2 = document.createElement("option");
-            option2.value = "samsungGalaxy";
+            option2.value = "Samsung Galaxy";
             option2.textContent = "Samsung Galaxy";
             product_name.appendChild(option2);
 
             const option3 = document.createElement("option");
-            option3.value = "googlePixel";
+            option3.value = "Google Pixel";
             option3.textContent = "Google Pixel";
             product_name.appendChild(option3);
 
             const option4 = document.createElement("option");
-            option4.value = "onePlus";
-            option4.textContent = "One Plus";
+            option4.value = "OnePlus";
+            option4.textContent = "OnePlus";
             product_name.appendChild(option4);
         }
 
-        else if (category === "audio") {
+        else if (category === "Audio") {
             const option1 = document.createElement("option");
-            option1.value = "headphone";
+            option1.value = "Headphones";
             option1.textContent = "Headphones";
             product_name.appendChild(option1);
 
             const option2 = document.createElement("option");
-            option2.value = "bluethoothSpeaker";
-            option2.textContent = "Bluethooth Speakers";
+            option2.value = "Bluetooth Speakers";
+            option2.textContent = "Bluetooth Speakers";
             product_name.appendChild(option2);
 
             const option3 = document.createElement("option");
-            option3.value = "soundBars";
-            option3.textContent = "Sound Bars";
+            option3.value = "Soundbars";
+            option3.textContent = "Soundbars";
             product_name.appendChild(option3);
 
             const option4 = document.createElement("option");
-            option4.value = "earphones";
-            option4.textContent = "Ear Phones";
+            option4.value = "Earphones";
+            option4.textContent = "Earphones";
             product_name.appendChild(option4);
         }
 
@@ -82,6 +82,8 @@ const Header = () => {
         setIsChecked(!isChecked);
     }
     // ---------------------------Handle warranty checkbok------------------------------------
+
+
 
 
     // --------------------------handle purchase Date----------------------------------------
@@ -106,6 +108,8 @@ const Header = () => {
     console.log(purchaseDate)
     // --------------------------handle purchase Date----------------------------------------
 
+
+
     // -------------------------------Handle File Input-----------------------------
     const [file, setFile] = useState('');
     const handleFileInput = (event) => {
@@ -122,8 +126,6 @@ const Header = () => {
         const serialNumber = event.target.serialNumber.value;
         const purchasePrice = event.target.purchasePrice.value;
         const warrantyInYears = event.target.warranty ? event.target.warranty.value : 0;
-
-        // console.log(categoryName, productName, serialNumber, purchasePrice, purchaseDate, warrantyInYears, warrantyExpireDate);
 
         const newItem = {
             categoryName,
@@ -153,7 +155,7 @@ const Header = () => {
                 </div>
             </div>
 
-            {/* Put this part before </body> tag */}
+            {/* Add Inventory Modal */}
             <input type="checkbox" id="my-modal-5" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box w-11/12 max-w-5xl px-16">
@@ -164,9 +166,9 @@ const Header = () => {
                         <div className="grid grid-cols-[200px_1fr]">
                             <label htmlFor="">Categoty <span className="text-red-500">*</span> </label>
                             <select className="border-2 py-2 px-3" id="category" name="category" onChange={updateProductName}>
-                                <option value="computer">Computers</option>
-                                <option value="smartphone">Smartphones</option>
-                                <option value="audio">Audio</option>
+                                <option value="Computers">Computers</option>
+                                <option value="Smartphones">Smartphones</option>
+                                <option value="Audio">Audio</option>
                             </select>
                         </div>
                         <br />
