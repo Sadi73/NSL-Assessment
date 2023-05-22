@@ -76,12 +76,12 @@ const Header = () => {
 
     }
 
-    // Handle warranty checkbok
+    //--------------------------- Handle warranty checkbok---------------------------------------
     const [isChecked, setIsChecked] = useState(false);
     const handleCheckbox = () => {
         setIsChecked(!isChecked);
     }
-    // Handle warranty checkbok
+    // ---------------------------Handle warranty checkbok------------------------------------
 
 
     // --------------------------handle purchase Date----------------------------------------
@@ -106,6 +106,15 @@ const Header = () => {
     console.log(purchaseDate)
     // --------------------------handle purchase Date----------------------------------------
 
+    // -------------------------------Handle File Input-----------------------------
+    const [file, setFile] = useState('');
+    const handleFileInput = (event) => {
+        const file = event.target.value;
+        console.log(file);
+        setFile(file)
+    }
+    // -------------------------------Handle File Input-----------------------------
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const categoryName = event.target.category.value;
@@ -123,7 +132,8 @@ const Header = () => {
             purchasePrice,
             purchaseDate,
             warrantyInYears,
-            warrantyExpireDate
+            warrantyExpireDate,
+            file
         }
         console.log(newItem)
     }
@@ -224,6 +234,7 @@ const Header = () => {
                                     type="file"
                                     id="fileInput"
                                     accept=".jpg, .png"
+                                    onChange={handleFileInput}
                                 // style={{ display: 'none' }}
                                 />
                             </div>
