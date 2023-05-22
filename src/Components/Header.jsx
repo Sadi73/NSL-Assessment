@@ -103,8 +103,8 @@ const Header = () => {
         setYear(event.target.value);
     };
 
-    const purchaseDate = `${day}-${month}-${year}`
-    const warrantyExpireDate = purchaseDate;
+    const purchaseDate = `${year}-${month}-${day}`
+    const warrantyExpireDate = `${parseInt(year)  + 5}-${month}-${day}`;
     console.log(purchaseDate)
     // --------------------------handle purchase Date----------------------------------------
 
@@ -125,7 +125,7 @@ const Header = () => {
         const productName = event.target.productName.value;
         const serialNumber = event.target.serialNumber.value;
         const purchasePrice = event.target.purchasePrice.value;
-        const warrantyInYears = event.target.warranty ? event.target.warranty.value : 0;
+        const warrantyInYears = event.target.warranty ? event.target.warranty.value : 5;
 
         const newItem = {
             categoryName,

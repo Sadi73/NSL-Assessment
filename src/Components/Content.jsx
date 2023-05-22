@@ -50,6 +50,8 @@ const Content = () => {
         setItems(updatedItems);
     }
 
+    let i = 1;
+
     return (
         <div className="p-10">
             {
@@ -58,6 +60,7 @@ const Content = () => {
                         <table className="table w-full text-center font-semi">
                             <thead>
                                 <tr className="bg-gray-300">
+                                    <th>SL No</th>
                                     <th className="static">Asset No.</th>
                                     <th>Category</th>
                                     <th>Image</th>
@@ -73,6 +76,7 @@ const Content = () => {
                                 {
                                     items.map(item => (
                                         <tr key={item.id} className="border-2 my-10">
+                                            <td>{i++}</td>
                                             <td>{item.assetNumber}</td>
                                             <td>{item.categoryName}</td>
                                             <td className="flex justify-center"> <img src={item.productPhoto} alt="" className="w-10 h-10" /> </td>
@@ -106,7 +110,7 @@ const Content = () => {
 
 
 
-            {/* Put this part before </body> tag */}
+            {/* Delete Modal */}
             <input type="checkbox" id="my-modal-4" className="modal-toggle" />
             <label htmlFor="my-modal-4" className="modal cursor-pointer">
                 <label className="modal-box relative" htmlFor="">
