@@ -85,9 +85,8 @@ const Header = () => {
         const warrantyInYears = event.target.warranty.value;
         const warrantyExpireDate = event.target.warrantyExpiryDate.value;
 
-        // const a = event.target.checkbox.value;
         console.log(categoryName, productName, serialNumber, purchasePrice, purchaseDate, warrantyInYears, warrantyExpireDate);
-        // console.log(a);
+
         const newItem = {
             categoryName,
             productName,

@@ -9,7 +9,7 @@ const Content = () => {
     const [items, setItems] = useState([]);
     const [deleteID, setDeleteID] = useState(null);
 
-    // starts here
+    // get data from api 
     var myHeaders = new Headers();
     myHeaders.append("apiKey", "gHnalAf+KT7bKgP5JDR2v9KeUipZhhMAmmzMyNW7bCo=");
 
@@ -25,7 +25,7 @@ const Content = () => {
             .then(result => setItems(result))
             .catch(error => console.log('error', error));
     }, [])
-    // ends here 
+    // get data from api  
 
     const handleConfirm = (id) => {
 
@@ -45,7 +45,7 @@ const Content = () => {
             .catch(error => console.log('error', error));
         // delete from api
 
-        console.log('successfully deleted', id);
+        // console.log('successfully deleted', id);
         const updatedItems = items.filter(item => item.id !== id);
         // console.log(updatedItems);
         setItems(updatedItems);
@@ -104,7 +104,7 @@ const Content = () => {
                     <div className="flex justify-center mb-10">
                         <FontAwesomeIcon icon={faTrash} className="text-7xl text-red-300" />
                     </div>
-                    <h3 className="text-lg font-medium text-center mb-10">Are you sure you want to delete this product? {deleteID} </h3>
+                    <h3 className="text-lg font-medium text-center mb-10">Are you sure you want to delete this product?  </h3>
                     <div className="flex justify-end">
                         <div>
                             <button className="btn btn-outline btn-info mr-5">
