@@ -5,7 +5,6 @@ import DatepikerForPurchase from "./DatepikerForPurchase";
 import DatePickerforWarranty from "./DatePickerforWarranty";
 
 const Header = () => {
-    const [isChecked, setIsChecked] = useState(false);
 
     const updateProductName = (event) => {
         const category = event.target.value;
@@ -77,10 +76,35 @@ const Header = () => {
 
     }
 
+    // Handle warranty checkbok
+    const [isChecked, setIsChecked] = useState(false);
     const handleCheckbox = () => {
         setIsChecked(!isChecked);
-        console.log(isChecked);
     }
+    // Handle warranty checkbok
+
+
+    // --------------------------handle purchase Date----------------------------------------
+    const [day, setDay] = useState('');
+    const [month, setMonth] = useState('');
+    const [year, setYear] = useState('');
+
+    const handleDayChange = (event) => {
+        setDay(event.target.value);
+    };
+
+    const handleMonthChange = (event) => {
+        setMonth(event.target.value);
+    };
+
+    const handleYearChange = (event) => {
+        setYear(event.target.value);
+    };
+
+    const purchaseDate = `${day}-${month}-${year}`
+    const warrantyExpireDate = purchaseDate;
+    console.log(purchaseDate)
+    // --------------------------handle purchase Date----------------------------------------
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -88,11 +112,9 @@ const Header = () => {
         const productName = event.target.productName.value;
         const serialNumber = event.target.serialNumber.value;
         const purchasePrice = event.target.purchasePrice.value;
-        const purchaseDate = event.target.purchaseDate.value;
-        const warrantyInYears = event.target.warranty.value;
-        const warrantyExpireDate = event.target.warrantyExpiryDate.value;
+        const warrantyInYears = event.target.warranty ? event.target.warranty.value : 0;
 
-        console.log(categoryName, productName, serialNumber, purchasePrice, purchaseDate, warrantyInYears, warrantyExpireDate);
+        // console.log(categoryName, productName, serialNumber, purchasePrice, purchaseDate, warrantyInYears, warrantyExpireDate);
 
         const newItem = {
             categoryName,
@@ -100,11 +122,12 @@ const Header = () => {
             serialNumber,
             purchasePrice,
             purchaseDate,
-            warrantyInYears, warrantyExpireDate
+            warrantyInYears,
+            warrantyExpireDate
         }
         console.log(newItem)
     }
-    
+
     return (
         <div className="px-10">
             {/* The button to open modal */}
@@ -158,7 +181,8 @@ const Header = () => {
                         <br />
                         <div className="grid grid-cols-[200px_1fr]">
                             <label htmlFor="">Purchase Date <span className="text-red-500">*</span></label>
-                            <DatepikerForPurchase></DatepikerForPurchase>
+                            <DatepikerForPurchase day={day} handleDayChange={handleDayChange} month={month} handleMonthChange={handleMonthChange} year={year} handleYearChange={handleYearChange}></DatepikerForPurchase>
+
                         </div>
                         <br />
 
@@ -178,7 +202,7 @@ const Header = () => {
                                             <input className="border-2 py-2 px-3" type="text" name="warranty" />
                                         </div>
                                         <br />
-                                        
+
                                         <div className="grid grid-cols-[200px_1fr]">
                                             <label htmlFor="">Warranty Expiry Date <span className="text-red-500">*</span></label>
                                             <DatePickerforWarranty></DatePickerforWarranty>
@@ -193,10 +217,10 @@ const Header = () => {
                             <div></div>
                             <div className="relative">
                                 <label htmlFor="fileInput" className="border-2 p-5 ">
-                                <FontAwesomeIcon icon={faCamera} className="mr-2 " /> Add Image
+                                    <FontAwesomeIcon icon={faCamera} className="mr-2 " /> Add Image
                                 </label>
                                 <input
-                                className="absolute left-0 top-11"
+                                    className="absolute left-0 top-11"
                                     type="file"
                                     id="fileInput"
                                     accept=".jpg, .png"

@@ -1,22 +1,10 @@
 import { useState } from "react";
 
 
-const DatepikerForPurchase = () => {
-    const [day, setDay] = useState('');
-    const [month, setMonth] = useState('');
-    const [year, setYear] = useState('');
-
-    const handleDayChange = (event) => {
-        setDay(event.target.value);
-    };
-
-    const handleMonthChange = (event) => {
-        setMonth(event.target.value);
-    };
-
-    const handleYearChange = (event) => {
-        setYear(event.target.value);
-    };
+const DatepikerForPurchase = (props) => {
+    const {day, handleDayChange} = props;
+    const {month, handleMonthChange} = props;
+    const {year, handleYearChange} = props;
 
     return (
         <div className='grid grid-cols-3 gap-10'>
