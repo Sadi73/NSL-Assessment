@@ -149,7 +149,13 @@ const Header = () => {
         const serialNumber = event.target.serialNumber.value;
         const purchasePrice = event.target.purchasePrice.value;
         const warrantyInYears = event.target.warranty ? event.target.warranty.value : 0;
-        const warrantyExpireDate = warrantyInYears == 0 ? purchaseDate : warrantyExpireDate1; 
+        const warrantyExpireDate = warrantyInYears == 0 ? purchaseDate : warrantyExpireDate1;
+
+        event.target.serialNumber.value = '';
+        event.target.purchasePrice.value = '';
+        if (isChecked) {
+            event.target.warranty.value = '';
+        }
 
         const newItem = {
             categoryName,
@@ -304,7 +310,6 @@ const Header = () => {
                         {/* cancel and save button */}
                         <div className="mt-10 flex justify-end gap-3">
                             <label htmlFor="my-modal-5" className=" border border-red-700 text-red-700 py-2 px-4">Cancel</label>
-
                             <input type="submit" value='Save' name="" id="" className="bg-sky-500 text-white px-4 py-2" />
                         </div>
                     </form>

@@ -67,7 +67,7 @@ const Content = () => {
         const purchasePrice = event.target.purchasePrice.value;
         const purchaseDate = event.target.purchaseDate.value;
         const warrantyInYears = event.target.warranty ? event.target.warranty.value : 0;
-        const warrantyExpireDate = event.target.warrantyExpireDate?.value;
+        const warrantyExpireDate = warrantyInYears == 0 ? purchaseDate : event.target.warrantyExpireDate.value;
         // console.log(categoryName, productName, serialNumber, purchasePrice, purchaseDate, warrantyInYears, warrantyExpireDate);
 
 
@@ -131,8 +131,10 @@ const Content = () => {
                                             <td>{i++}</td>
                                             <td>{item.assetNumber}</td>
                                             <td>{item.categoryName}</td>
-                                            <td className="flex justify-center"> <img src={item.productPhoto} alt="" className="w-10 h-10" /> </td>
+                                            {/* <td className="flex justify-center"> <img src={item.productPhoto} alt="" className="w-10 h-10" /> </td> */}
+                                            <td className="flex justify-center"> <img src={`http://182.163.101.173:49029/product-crud/${item?.productPhoto?.originalPath}`} alt="" className="w-10 h-10" /> </td>
                                             <td>{item.productName}</td>
+                                            
                                             <td>{item.serialNumber}</td>
                                             <td>{item.purchasePrice}</td>
                                             <td className="text-center">{item.warrantyInYears}</td>
@@ -168,7 +170,7 @@ const Content = () => {
             <div className="modal">
                 <div className="modal-box max-w-3xl relative p-10">
                     <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h1 className="text-5xl text-center mb-10">Edit This Product {editID}</h1>
+                    <h1 className="text-5xl text-center mb-10">Edit This Product </h1>
                     <form onSubmit={HandleSubmitOnContent}>
                         <div className="grid grid-cols-[200px_1fr]">
                             <h1>Category</h1>
