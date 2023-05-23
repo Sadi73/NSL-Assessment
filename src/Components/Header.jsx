@@ -126,7 +126,7 @@ const Header = () => {
         setWarrantyExpireYear(event.target.value);
     };
 
-    const warrantyExpireDate = `${warrantyExpireyear}-${warrantyExpiremonth}-${warrantyExpireday}`;
+    const warrantyExpireDate1 = `${warrantyExpireyear}-${warrantyExpiremonth}-${warrantyExpireday}`;
     // console.log(warrantyExpireDate);
     // ------------------------------Handle Warranty Expire date------------------------------
 
@@ -149,6 +149,7 @@ const Header = () => {
         const serialNumber = event.target.serialNumber.value;
         const purchasePrice = event.target.purchasePrice.value;
         const warrantyInYears = event.target.warranty ? event.target.warranty.value : 0;
+        const warrantyExpireDate = warrantyInYears == 0 ? purchaseDate : warrantyExpireDate1; 
 
         const newItem = {
             categoryName,

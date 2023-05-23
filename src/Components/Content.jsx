@@ -68,7 +68,7 @@ const Content = () => {
         const purchaseDate = event.target.purchaseDate.value;
         const warrantyInYears = event.target.warranty ? event.target.warranty.value : 0;
         const warrantyExpireDate = event.target.warrantyExpireDate?.value;
-        console.log(categoryName, productName, serialNumber, purchasePrice, purchaseDate, warrantyInYears, warrantyExpireDate);
+        // console.log(categoryName, productName, serialNumber, purchasePrice, purchaseDate, warrantyInYears, warrantyExpireDate);
 
 
         // -------------------update data----------------
