@@ -3,8 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
 import DatepikerForPurchase from "./DatepikerForPurchase";
 import DatePickerforWarranty from "./DatePickerforWarranty";
+import axios from "axios";
 
 const Header = () => {
+    // const [warrantyYear, setWarrantyYear] = useState(0);
 
     const updateProductName = (event) => {
         const category = event.target.value;
@@ -103,19 +105,40 @@ const Header = () => {
         setYear(event.target.value);
     };
 
-    const purchaseDate = `${year}-${month}-${day}`
-    const warrantyExpireDate = `${parseInt(year) + 5}-${month}-${day}`;
-    console.log(purchaseDate)
+    const purchaseDate = `${year}-${month}-${day}`;
+    // console.log(purchaseDate)
     // --------------------------handle purchase Date----------------------------------------
+
+    // ------------------------------Handle Warranty Expire date------------------------------
+    const [warrantyExpireday, setWarrantyExpireDay] = useState('');
+    const [warrantyExpiremonth, setWarrantyExpireMonth] = useState('');
+    const [warrantyExpireyear, setWarrantyExpireYear] = useState('');
+
+    const handleWarrantyExpireDayChange = (event) => {
+        setWarrantyExpireDay(event.target.value);
+    };
+
+    const handleWarrantyExpireMonthChange = (event) => {
+        setWarrantyExpireMonth(event.target.value);
+    };
+
+    const handleWarrantyExpireYearChange = (event) => {
+        setWarrantyExpireYear(event.target.value);
+    };
+
+    const warrantyExpireDate = `${warrantyExpireyear}-${warrantyExpiremonth}-${warrantyExpireday}`;
+    // console.log(warrantyExpireDate);
+    // ------------------------------Handle Warranty Expire date------------------------------
 
 
 
     // -------------------------------Handle File Input-----------------------------
     const [file, setFile] = useState('');
+
     const handleFileInput = (event) => {
-        const file = event.target.value;
-        console.log(file);
-        setFile(file)
+        const file = event?.target?.files[0];
+        // console.log(file);
+        setFile(file);
     }
     // -------------------------------Handle File Input-----------------------------
 
@@ -125,7 +148,7 @@ const Header = () => {
         const productName = event.target.productName.value;
         const serialNumber = event.target.serialNumber.value;
         const purchasePrice = event.target.purchasePrice.value;
-        const warrantyInYears = event.target.warranty ? event.target.warranty.value : 5;
+        const warrantyInYears = event.target.warranty ? event.target.warranty.value : 0;
 
         const newItem = {
             categoryName,
@@ -135,13 +158,45 @@ const Header = () => {
             purchaseDate,
             warrantyInYears,
             warrantyExpireDate,
-            file
         }
-        console.log(newItem);
+        // console.log(newItem);
         // ------------------------
-        // ------------------------
+        let data = new FormData();
+        data.append('product', new Blob([JSON.stringify(newItem)], { type: 'application/json' }));
+        data.append('productPhoto', file);
 
+        let config = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: 'http://182.163.101.173:49029/product-crud/products',
+            headers: {
+                'apiKey': 'gHnalAf+KT7bKgP5JDR2v9KeUipZhhMAmmzMyNW7bCo=',
+                'Content-Type': 'multipart/form-data;',
+            },
+            data: data
+        };
+
+        axios.request(config)
+            .then((response) => {
+                console.log(JSON.stringify(response.data));
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+    };
+
+    function generateBoundary() {
+        var chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+        var boundary = '---------------------------';
+        for (var i = 0; i < 20; i++) {
+            var randomIndex = Math.floor(Math.random() * chars.length);
+            boundary += chars.charAt(randomIndex);
+        }
+        return boundary;
     }
+    // ------------------------
+
 
     return (
         <div className="px-10">
@@ -178,9 +233,9 @@ const Header = () => {
                         <div className="grid grid-cols-[200px_1fr]">
                             <label htmlFor="">Product Name <span className="text-red-500">*</span></label>
                             <select className="border-2 py-2 px-3" id="productName" name="productName">
-                                <option value="laptop">Laptop</option>
-                                <option value="desktop">Desktop</option>
-                                <option value="chromebook">Chromebook</option>
+                                <option value="Laptop">Laptop</option>
+                                <option value="Desktop">Desktop</option>
+                                <option value="Chromebook">Chromebook</option>
                             </select>
                         </div>
                         <br />
@@ -220,7 +275,7 @@ const Header = () => {
 
                                         <div className="grid grid-cols-[200px_1fr]">
                                             <label htmlFor="">Warranty Expiry Date <span className="text-red-500">*</span></label>
-                                            <DatePickerforWarranty></DatePickerforWarranty>
+                                            <DatePickerforWarranty warrantyExpireday={warrantyExpireday} handleWarrantyExpireDayChange={handleWarrantyExpireDayChange} warrantyExpiremonth={warrantyExpiremonth} handleWarrantyExpireMonthChange={handleWarrantyExpireMonthChange} warrantyExpireyear={warrantyExpireyear} handleWarrantyExpireYearChange={handleWarrantyExpireYearChange}></DatePickerforWarranty>
                                         </div>
                                     </div>
                                 </div>
