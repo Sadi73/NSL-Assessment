@@ -11,6 +11,7 @@
 	2. If warranty is checked on, put the date respectively. 
 	3.click 'save' button.
 	4. Then reload the page.
+	
  To Edit Any Item:
 	1. Fill All the entry.
 	2. If warranty is checked on, put the date respectively.
